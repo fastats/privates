@@ -5,5 +5,7 @@ python:
   - 3.6-dev
   - 3.7-dev
   - nightly
-install: "pip install -r requirements.txt"
-script: pytest
+before_script:
+  - pip install python-coveralls
+script: pytest --pep8 coveralls --cov coveralls -cov-report term-missing
+after_success: coveralls
