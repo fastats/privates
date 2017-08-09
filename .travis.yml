@@ -7,5 +7,5 @@ python:
   - nightly
 before_script:
   - pip install python-coveralls
-script: pytest --pep8 coveralls --cov coveralls -cov-report term-missing
+script: pytest --pep8 coveralls --cov coveralls --cov-report term-missing
 after_success: coveralls
