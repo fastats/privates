@@ -1,6 +1,6 @@
 # privates
 
-[![Build status](https://travis-ci.org/fastats/privates.svg?branch=master)
+[![Build Status](https://travis-ci.org/fastats/privates.svg?branch=master)](https://travis-ci.org/fastats/privates)
 [![Coverage Status](https://coveralls.io/repos/github/fastats/privates/badge.svg?branch=master)](https://coveralls.io/github/fastats/privates?branch=master)
 
 
