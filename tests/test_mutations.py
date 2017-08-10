@@ -90,5 +90,19 @@ def test_other_mutations_valid():
     assert other['b'] == 2
 
 
+def test_replace_is_invalid():
+    x = dict(a=1, b=2)
+
+    with pytest.raises(MutationError):
+        with no_mutations(x):
+            del x['b']
+            x['b'] = 2
+
+    with pytest.raises(MutationError):
+        with no_mutations(x):
+            del x['a']
+            x['a'] = 1
+
+
 if __name__ == '__main__':
     pytest.main()
