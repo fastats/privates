@@ -9,6 +9,13 @@ class DictStruct(PyObjectStruct):
     Mirrors the structure behind the `PyDictObject`
     definition in CPython.
     CPython: Include/dictobject.h#L23-L41
+
+    >>> x = dict(a=1, b=2)
+    >>> ds = DictStruct.from_dict(x)
+    >>> ds.size
+    2
+    >>> ds.ref_count
+    1
     """
     _fields_ = [
         ('ma_used', ctypes.c_ssize_t),
