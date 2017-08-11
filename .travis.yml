@@ -10,6 +10,6 @@ before_install:
   - pip install coveralls
 script: pytest
 after_success:
-    - if [[ $ENV == python=3.4* ]]; then
+    - if [[ $ENV == python=3.6 ]]; then
           coveralls;
       fi
