@@ -2,7 +2,6 @@ language: python
 sudo: false
 os:
   - linux
-  - osx
 python:
   - 3.6
   - 3.6-dev
@@ -10,9 +9,8 @@ python:
   - nightly
 before_install:
   - pip install pytest pytest-cov
+  - pip install python-coveralls
   - pip install coveralls
 script: pytest
 after_success:
-    - if [[ $ENV == python=3.6* ]]; then
-          coveralls;
-      fi
+    - coveralls
