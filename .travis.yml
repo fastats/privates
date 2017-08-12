@@ -11,6 +11,10 @@ before_install:
   - pip install pytest pytest-cov
   - pip install python-coveralls
   - pip install coveralls
-script: pytest
+  - pip install sphinx
+  - pip install sphinx_rtd_theme
+script:
+  - pytest
+  - sphinx-build docs/source docs/build -W
 after_success:
     - coveralls
