@@ -46,9 +46,4 @@ def test_ref_count_increases():
     assert 0 < initial
 
     y = x
-    assert initial + 1 == ds.ref_count
-
-
-if __name__ == '__main__':
-    import pytest
-    pytest.main()
+    assert initial + 1 <= ds.ref_count
