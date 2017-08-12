@@ -12,6 +12,8 @@ class DictStruct(PyObjectStruct):
 
     >>> x = dict(a=1, b=2)
     >>> ds = DictStruct.from_dict(x)
+    >>> ds # doctest: +ELLIPSIS
+    DictStruct(size=2, refcount=1, version=...)
     >>> ds.size
     2
     >>> ds.ref_count
@@ -47,8 +49,3 @@ class DictStruct(PyObjectStruct):
     @property
     def ref_count(self):
         return self.ob_refcnt
-
-
-if __name__ == '__main__':
-    import pytest
-    pytest.main()

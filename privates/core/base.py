@@ -17,8 +17,3 @@ class PyObjectStruct(ctypes.Structure):
         ('ob_refcnt', ctypes.c_ssize_t),
         ('ob_type', ctypes.c_void_p)
     ]
-
-
-if __name__ == '__main__':
-    import pytest
-    pytest.main()

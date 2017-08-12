@@ -31,8 +31,3 @@ def no_mutations(obj):
     finally:
         if initial < ds.version:
             raise MutationError('The dict was mutated')
-
-
-if __name__ == '__main__':
-    import pytest
-    pytest.main()

@@ -18,6 +18,9 @@ def test_dict_mutation_raises():
     with pytest.raises(MutationError):
         with no_mutations(x):
             x['b'] = 2
+    # MutationError was raised, but
+    # mutation still exists.
+    assert 'b' in x
 
 
 def test_multiple_reads_valid():
@@ -104,5 +107,38 @@ def test_replace_is_invalid():
             x['a'] = 1
 
 
-if __name__ == '__main__':
-    pytest.main()
+def test_string_values():
+    x = dict(a='a', b='b')
+
+    with no_mutations(x):
+        test = x['a']
+    assert test == 'a'
+
+    with pytest.raises(MutationError):
+        with no_mutations(x):
+            x['c'] = 'c'
+    assert 'c' in x
+
+
+def test_tuple_keys():
+    x = { ('a', 'b'): 1, ('c', 'd'): 2}
+
+    with no_mutations(x):
+        test = x[('a', 'b')]
+    assert test == 1
+
+    with pytest.raises(MutationError):
+        with no_mutations(x):
+            x[('e', 'f')] = 3
+    assert ('e', 'f') in x
+
+
+def test_mutation_in_function():
+    x = {'a': 1, 'b': 2}
+
+    def my_func(a):
+        a['c'] = 3
+
+    with pytest.raises(MutationError):
+        with no_mutations(x):
+            my_func(x)
