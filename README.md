@@ -2,11 +2,11 @@
 
 [![Build Status](https://travis-ci.org/fastats/privates.svg?branch=master)](https://travis-ci.org/fastats/privates)
 [![Coverage Status](https://coveralls.io/repos/github/fastats/privates/badge.svg?branch=master)](https://coveralls.io/github/fastats/privates?branch=master)
-
-
+[![Documentation Status](https://readthedocs.org/projects/privates/badge/?version=latest)](http://privates.readthedocs.io/en/latest/?badge=latest)
 
 A python library using private/hidden python language features
 
+[Click here for the documentation](http://privates.readthedocs.io/en/latest/)
 
 ## features
 
@@ -30,9 +30,49 @@ with no_mutations(x):
 assert 'c' in x
 ```
 
+- A `NamedStruct` to facilitate calling external native/jitted APIs, which
+allows inheritance of attributes, among other behaviours. This also features
+as a better `namedtuple`/`typing.NamedTuple`, without the errors of the existing
+implementations.
+
+```python
+from privates import NamedStruct
+
+
+class Point(NamedStruct):
+    x: int
+    y: int
+
+
+class Rectangle(Point):
+    height: int
+    width: int
+
+    def area(self):
+        return self.height * self.width
+
+
+# This creates a `numba` jitclass.
+r = Rectangle.create(x=0, y=0, height=3, width=4)
+assert r.area() == 12
+```
+
+## development/contributing
+
+- To report a bug, please open a PR with a new (failing) unit-test showing the
+problem.
+- To request a feature, please open a PR with a new (failing) unit-test showing
+the preferred API.
+- To make a contribution, please open a PR with new (passing) unit-tests,
+inline doctest examples and documentation updates.
+
 
 ## requirements
 
 - Python 3.6 or later
-- Py.test
+- py.test
 - coverage
+
+### optional requirements
+
+- numba >= 0.33
