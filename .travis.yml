@@ -10,7 +10,7 @@ python:
 before_install:
   - pip install pytest 
   - pip install pytest-cov
-  - pip install code-cov
+  - pip install codecov
   - pip install sphinx
   - pip install sphinx_rtd_theme
 script:
