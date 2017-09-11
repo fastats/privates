@@ -5,11 +5,10 @@ os:
 python:
   - 3.6
   - 3.6-dev
-  - 3.7-dev
-  - nightly
 before_install:
   - pip install pytest 
   - pip install pytest-cov
+  - pip install numba
   - pip install codecov
   - pip install sphinx
   - pip install sphinx_rtd_theme
