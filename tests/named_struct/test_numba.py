@@ -3,15 +3,10 @@ import sys
 from unittest import skipUnless as skip_unless
 
 import numpy as np
-try:
-    import numba
-    from numba import jitclass
 
-    from numba.types import (
-        intp, float64
-    )
-except ImportError:
-    numba = None
+import numba
+from numba import jitclass
+from numba.types import intp, float64
 
 from privates import NamedStruct
 
@@ -40,7 +35,6 @@ class Rectangle(Point):
         return self.width * self.height
 
 
-@skip_unless(numba, FAIL_MSG)
 def test_create_api():
     global Rectangle
 
