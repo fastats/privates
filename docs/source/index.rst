@@ -95,6 +95,57 @@ can do:
     ...     pass
 
 
+NamedStruct
+^^^^^^^^^^^
+
+The :class:`privates.named_struct.NamedStruct` is a typed struct class which allows inheritance (unlike `tuple`/`typing.NamedTuple`), and which
+can be automatically converted to an instance of a :ref:`numba.jitclass`
+using its classmethod `.create(**kwargs)`.
+
+A simple 2D Point and Rectangle class can therefore be defined as follows:
+
+.. doctest::
+
+    >>> from numba.types import float64
+    >>> from privates import NamedStruct
+    >>>
+    >>> class Point(NamedStruct):
+    ...     x: float64
+    ...     y: float64
+    ...
+    ...     def distance_from_origin(self):
+    ...         return np.sqrt(self.x**2 + self.y**2)
+    >>>
+    >>> class Rectangle(Point):
+    ...     width: float64
+    ...     height: float64
+    ...     
+    ...     def area(self):
+    ...         return self.width * self.height
+    >>>
+    >>> p = Point(x=1, y=1)
+    >>> p.distance_from_origin()
+    1.414...
+    >>> r = Rectangle(x=0, y=0, height=5, width=4)
+    >>> r.area()
+    20.0
+
+The attributes and methods from Point are inherited by Rectangle, and the use of `numba.types` as the type declarations allows jitclasses to be used
+directly without extra decorators:
+
+.. doctest::
+
+    >>> from numba.types import float64
+    >>> from privates import NamedStruct
+    >>>
+    >>> class Point(NamedStruct):
+    ...     x: float64
+    ...     y: float64
+    >>> 
+    >>> p = Point.create(x=3, y=4)
+    >>> p.distance_from_origin()
+    5.0
+
 
 Indices and tables
 ==================
