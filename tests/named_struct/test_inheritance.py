@@ -58,3 +58,4 @@ def test_attribute_order():
 def test_types_are_validated():
     with pytest.raises(AssertionError):
         f = Fourth('1', 'a', 2.0, 'b', 3, 'c', 'test', 30_000)
+        
