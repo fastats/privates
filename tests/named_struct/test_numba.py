@@ -1,11 +1,7 @@
 
-import sys
-from unittest import skipUnless as skip_unless
-
-import numpy as np
 import numba
-from numba import jitclass
-from numba.types import intp, float64
+from numba.types import float64
+import numpy as np
 
 from privates import NamedStruct
 
@@ -35,8 +31,6 @@ class Rectangle(Point):
 
 
 def test_create_api():
-    global Rectangle
-
     norm = Rectangle(x=0, y=1, height=5, width=6)
     assert norm.x == 0
     assert norm[0] == 0
