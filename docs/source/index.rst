@@ -99,7 +99,7 @@ NamedStruct
 ^^^^^^^^^^^
 
 The :class:`privates.named_struct.NamedStruct` is a typed struct class which allows inheritance (unlike `tuple`/`typing.NamedTuple`), and which
-can be automatically converted to an instance of a :ref:`numba.jitclass`
+can be automatically converted to an instance of a `numba.jitclass`
 using its classmethod `.create(**kwargs)`.
 
 A simple 2D Point and Rectangle class can therefore be defined as follows:
