@@ -106,27 +106,27 @@ A simple 2D Point and Rectangle class can therefore be defined as follows:
 
 .. doctest::
 
-    >>> from numba.types import float64
+    >>> import numpy as np
     >>> from privates import NamedStruct
     >>>
     >>> class Point(NamedStruct):
-    ...     x: float64
-    ...     y: float64
+    ...     x: float
+    ...     y: float
     ...
     ...     def distance_from_origin(self):
     ...         return np.sqrt(self.x**2 + self.y**2)
     >>>
     >>> class Rectangle(Point):
-    ...     width: float64
-    ...     height: float64
+    ...     width: float
+    ...     height: float
     ...     
     ...     def area(self):
     ...         return self.width * self.height
     >>>
-    >>> p = Point(x=1, y=1)
+    >>> p = Point(1.0, 1.0)
     >>> p.distance_from_origin()
     1.414...
-    >>> r = Rectangle(x=0, y=0, height=5, width=4)
+    >>> r = Rectangle(0.0, 0.0, 5.0, 4.0)
     >>> r.area()
     20.0
 
@@ -141,8 +141,11 @@ directly without extra decorators:
     >>> class Point(NamedStruct):
     ...     x: float64
     ...     y: float64
+    ...
+    ...     def distance_from_origin(self):
+    ...         return sqrt(self.x**2 + self.y**2)
     >>> 
-    >>> p = Point.create(x=3, y=4)
+    >>> p = Point.create(x=3.0, y=4.0)
     >>> p.distance_from_origin()
     5.0
 

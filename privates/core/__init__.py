@@ -5,7 +5,7 @@ from privates.core.errors import MutationError
 
 
 __all__ = [
-    PyObjectStruct,
-    DictStruct,
-    MutationError
+    'PyObjectStruct',
+    'DictStruct',
+    'MutationError'
 ]

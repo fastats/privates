@@ -47,3 +47,4 @@ def test_ref_count_increases():
 
     y = x
     assert initial + 1 <= ds.ref_count
+    assert y is x
