@@ -67,3 +67,8 @@ def test_items():
     assert 'a' in items
     assert 'b' in items
     assert 'c' in items
+
+
+if __name__ == '__main__':
+    import pytest
+    pytest.main([__file__])

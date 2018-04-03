@@ -43,3 +43,8 @@ def test_previous_attribute_type_fails():
 
     with pytest.raises(AssertionError):
         _ = Second(1, 2.0, 'test')
+
+
+if __name__ == '__main__':
+    import pytest
+    pytest.main([__file__])

@@ -58,3 +58,8 @@ def test_create_api():
     r3 =  Rectangle.create(x=3.0, y=4.0, height=3, width=4)
     assert r3.area() == 12
     assert r3.distance_from_origin() == 5.0
+
+
+if __name__ == '__main__':
+    import pytest
+    pytest.main([__file__])

@@ -142,3 +142,8 @@ def test_mutation_in_function():
     with pytest.raises(MutationError):
         with no_mutations(x):
             my_func(x)
+
+
+if __name__ == '__main__':
+    import pytest
+    pytest.main([__file__])
