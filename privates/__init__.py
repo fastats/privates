@@ -8,7 +8,7 @@ from privates.named_struct import NamedStruct
 
 
 __all__ = [
-    MutationError,
-    NamedStruct,
-    no_mutations
+    'MutationError',
+    'NamedStruct',
+    'no_mutations'
 ]

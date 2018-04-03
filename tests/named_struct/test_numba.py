@@ -28,8 +28,6 @@ class Rectangle(Point):
 
 
 def test_create_api():
-    global Rectangle
-
     norm = Rectangle(x=0, y=1, height=5, width=6)
     assert norm.x == 0
     assert norm[0] == 0

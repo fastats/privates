@@ -5,16 +5,15 @@ os:
 python:
   - 3.6
   - 3.6-dev
-  - 3.7-dev
-  - nightly
 before_install:
-  - pip install pytest pytest-cov
-  - pip install python-coveralls
-  - pip install coveralls
+  - pip install pytest 
+  - pip install pytest-cov
+  - pip install numba
+  - pip install codecov
   - pip install sphinx
   - pip install sphinx_rtd_theme
 script:
   - pytest
   - sphinx-build docs/source docs/build -W
 after_success:
-    - coveralls
+    - codecov

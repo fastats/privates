@@ -1,12 +1,19 @@
 # privates
 
 [![Build Status](https://travis-ci.org/fastats/privates.svg?branch=master)](https://travis-ci.org/fastats/privates)
-[![Coverage Status](https://coveralls.io/repos/github/fastats/privates/badge.svg?branch=master)](https://coveralls.io/github/fastats/privates?branch=master)
+[![codecov](https://codecov.io/gh/fastats/privates/branch/master/graph/badge.svg)](https://codecov.io/gh/fastats/privates)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/93df1d9d96f74ccca3cad51c8f3da518)](https://www.codacy.com/app/dave.willmer/privates?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=fastats/privates&amp;utm_campaign=Badge_Grade)
 [![Documentation Status](https://readthedocs.org/projects/privates/badge/?version=latest)](http://privates.readthedocs.io/en/latest/?badge=latest)
 
 A python library using private/hidden python language features
 
+## documentation
+
 [Click here for the documentation](http://privates.readthedocs.io/en/latest/)
+
+## installation
+
+There are no published packages yet. Soon you will be able to `pip install`...
 
 ## features
 
@@ -32,8 +39,8 @@ assert 'c' in x
 
 - A `NamedStruct` to facilitate calling external native/jitted APIs, which
 allows inheritance of attributes, among other behaviours. This also features
-as a better `namedtuple`/`typing.NamedTuple`, without the errors of the existing
-implementations.
+as a better `namedtuple`/`typing.NamedTuple`, without the errors  and performance
+issues of the existing implementations.
 
 ```python
 from privates import NamedStruct
@@ -72,7 +79,5 @@ inline doctest examples and documentation updates.
 - Python 3.6 or later
 - py.test
 - coverage
-
-### optional requirements
-
 - numba >= 0.33
+
