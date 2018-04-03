@@ -70,5 +70,4 @@ def test_items():
 
 
 if __name__ == '__main__':
-    import pytest
     pytest.main([__file__])

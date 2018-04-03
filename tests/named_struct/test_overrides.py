@@ -46,5 +46,4 @@ def test_previous_attribute_type_fails():
 
 
 if __name__ == '__main__':
-    import pytest
     pytest.main([__file__])

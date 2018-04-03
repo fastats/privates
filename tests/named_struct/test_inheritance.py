@@ -61,5 +61,4 @@ def test_types_are_validated():
 
 
 if __name__ == '__main__':
-    import pytest
     pytest.main([__file__])
