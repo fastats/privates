@@ -1,11 +1,8 @@
 
-import numba
 from numba.types import float64
 import numpy as np
 
 from privates import NamedStruct
-
-FAIL_MSG = "Numba not found"
 
 
 class Point(NamedStruct):
@@ -37,7 +34,7 @@ def test_create_api():
     assert norm.y == 1
     assert norm[1] == 1
     assert norm.height == 5
-    # assert norm[2] == 5  # TODO : need Struct.init
+    # assert norm[2] == 5  # TODO : needs Struct.init
     assert norm.width == 6
     # assert norm[3] == 6
     assert norm.distance_from_origin() == 1
