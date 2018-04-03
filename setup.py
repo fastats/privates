@@ -9,17 +9,6 @@ from setuptools import setup, find_packages
 
 here = path.abspath(path.dirname(__file__))
 
-
-def read_utf8(filename):
-    """
-    Ensure consistent encoding
-    """
-    with codecs.open(path.join(here, filename), encoding='utf-8') as f:
-        return f.read()
-
-
-long_description = read_utf8('README.md')
-
 # import just the _version module, don't pull in any dependencies
 spec = importlib.util.spec_from_file_location(
     '_version', path.join(here, 'privates', '_version.py')
@@ -34,11 +23,9 @@ setup_kwargs = dict(
     name='fastats-privates',
     version=version,
     description='A python library using private/hidden python language features',
-    url='https://github.com/fastats/fastats',
+    url='https://github.com/fastats/privates',
+    author='Fastats Developers',
     author_email='fastats@googlegroups.com',
-
-    # Represents the body of text which users will see when they visit PyPI
-    long_description=long_description,
 
     # For a list of valid classifiers, see
     # https://pypi.python.org/pypi?%3Aaction=list_classifiers
