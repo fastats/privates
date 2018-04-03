@@ -1,21 +1,8 @@
 
-import sys
-from unittest import skipUnless as skip_unless
-
+from numba.types import float64
 import numpy as np
-try:
-    import numba
-    from numba import jitclass
-
-    from numba.types import (
-        intp, float64
-    )
-except ImportError:
-    numba = None
 
 from privates import NamedStruct
-
-FAIL_MSG = "Numba not found"
 
 
 class Point(NamedStruct):
@@ -40,7 +27,6 @@ class Rectangle(Point):
         return self.width * self.height
 
 
-@skip_unless(numba, FAIL_MSG)
 def test_create_api():
     global Rectangle
 
@@ -50,7 +36,7 @@ def test_create_api():
     assert norm.y == 1
     assert norm[1] == 1
     assert norm.height == 5
-    # assert norm[2] == 5  # TODO : need Struct.init
+    # assert norm[2] == 5  # TODO : needs Struct.init
     assert norm.width == 6
     # assert norm[3] == 6
     assert norm.distance_from_origin() == 1

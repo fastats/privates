@@ -142,9 +142,6 @@ class NamedStruct:
     @classmethod
     def create(cls, **kwargs):
         jit_cls = cls._gen_type()
-        args = []
-        for k, v in cls.items():
-            args.append(kwargs[k])
         args = (kwargs[k] for k, _ in cls.items())
         return jit_cls(*args)
 
